@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Libreria</title>
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
+  <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+  <link rel="stylesheet" href="estilosdechill.css">
+</head>
+
+<body class="hold-transition skin-green sidebar-mini login-page">
+
+    <div class="wrapper">
+        <header class="main-header">
+
+            <a href="#" class="logo">
+
+              <span class="logo-mini"><b class="fa fa-book" style="font-size:25px"></b> </span>
+
+              <span class="logo-lg"><b>El Estudiante</b></span>
+            </a>
+
+            <nav class="navbar navbar-static-top">
+
+              <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+                <span class="sr-only">Toggle navigation</span>
+              </a>
+              <div class="navbar-custom-menu">
+                <ul class="nav navbar-nav"> 
+
+                  <li class="dropdown user user-menu">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">        
+                        <img src="http://localhost/libreria/Vistas/img/defecto.png" class="user-image" alt="User Image">                
+                        <span class="hidden-xs" style="text-transform: uppercase;">CHRISTIAN JOEL CASAS</span>        
+                    </a>
+                    <ul class="dropdown-menu" style="border: 1px solid black;">
+                      <li class="user-footer">
+                        <div class="pull-left">
+                          <a href="#" class="btn btn-primary btn-flat">Mis Datos</a>
+                        </div>
+                        <div class="pull-right">
+                          <a href="#" class="btn btn-danger btn-flat">Salir</a>
+                        </div>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </nav>
+         </header>
+         <div class="content-wrapper">
+
+            <section class="content-header">
+        
+                <h1 style="font-weight: bold;">Gestor de Libros</h1>
+        
+            </section>
+        
+            <section class="content">
+        
+                <div class="box">
+        
+                    <div class="box-header with-border">
+        
+                        <button class="btn btn-primary" data-toggle="modal" data-target="#CrearLibro">Registrar Nuevo Libro</button>
+                        <div style="position: absolute; top: 10px; right: 10px" class="search-container">
+                          <form  action="/buscar" method="get">
+                              <label for="busqueda">Buscar:</label>
+                              <input type="text" id="busqueda" name="q" placeholder="Introduce tu búsqueda..." />
+                              <input type="submit" value="Buscar" />
+                          </form>
+                        </div>
+                    </div>                    
+                    <div class="box-body">
+                        <table class="table table-bordered table-hover table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Título</th>
+                                    <th>Género</th>
+                                    <th>Autor</th>
+                                    <th>Idioma</th>
+                                    <th>Portada</th>
+                                    <th>Stock</th>
+                                    <th>Precio</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>                            
+                                <tr>
+                                    <td>IT</td>
+                                    <td>Terror</td>
+                                    <td>Stephen King</td>
+                                    <td>Español</td>
+                                    <td><img src="img/it_libro.jpg" alt="it" class="portada"></td>
+                                    <td>9 <div class="aunladito"></div><button class="verde">+</button></td>
+                                    <td>S/. 500.00</td>      
+                                    <td>                                       
+                                        <button class="btn btn-success" data-toggle="modal" data-target="#EditarLibro"><i class="fa fa-pencil"></i></button>  
+                                        <button class="btn btn-danger"><i class="fa fa-trash"></i></button>                                         
+                                    </td>
+                                </tr>
+                                <tr>
+                                  <td>El Alquimista</td>
+                                  <td>Novela</td>
+                                  <td>Paulo Coelho</td>
+                                  <td>Español</td>
+                                  <td><img src="img/el_alquimista_libro.jpg" alt="it" class="portada"></td>
+                                  <td>24 <div class="aunladito"></div><button class="verde">+</button></td>
+                                  <td>S/. 700.00</td>        
+                                  <td>                                       
+                                      <button class="btn btn-success" data-toggle="modal" data-target="#EditarLibro"><i class="fa fa-pencil"></i></button>  
+                                      <button class="btn btn-danger"><i class="fa fa-trash"></i></button>                                         
+                                  </td>       
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+        
+                </div>
+        
+            </section>
+        
+        </div>
+        
+        <div class="modal fade" id="CrearLibro">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <form method="post">
+                        <div class="moda-body">
+                            <div class="box-body">
+                                <div class="form-group">
+                                  <div class="form-group">
+                                    <h2>Título:</h2>
+                                    <input type="text" name="titulo" class="input-lg form-control" required="">
+    
+                                  </div>
+
+                                    <h2>Genero Literario:</h2>
+                                    <select name="genero" class="input-lg form-control" required="">
+                                        <option value="">Seleccionar...</option>
+                                        <option value="Administrador">Terror</option>
+                                        <option value="Vendedor">Novela</option>
+        
+                                    </select>
+                                    
+                                    <h2>Autor:</h2>
+                                    <select name="genero" class="input-lg form-control" required="">
+                                        <option value="">Seleccionar...</option>
+                                        <option value="Administrador">Mario Vargas Llosa</option>
+                                        <option value="Vendedor">Paulo Coelho</option>
+                                        <option value="Vendedor">Jean Garibay</option>
+        
+                                    </select>
+
+                                    <div class="form-group">
+                                        <h2>Fecha de Publicación:</h2>
+                                        <input type="date" name="fechapub" class="input-lg form-control" required="">
+        
+                                    </div>
+        
+                                    <div class="form-group">
+                                        <h2>Sinopsis:</h2>
+                                        <input type="text" name="sinopsis" class="input-lg form-control" required="">
+        
+                                    </div>
+        
+                                    <div class="form-group">
+                                        <h2>Idioma:</h2>
+                                        <input type="text" name="idioma" class="input-lg form-control" required="">
+        
+                                    </div>
+        
+                                    <div class="form-group">
+                                        <h2>Portada:</h2>
+                                        <input type="text" name="portada" class="input-lg form-control" required="">
+        
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--
+                            <br><div class="alert alert-danger" style="text-align: center;">Error al Ingresar</div>         -->                           
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-primary">Crear</button>
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <div class="modal fade" id="EditarLibro">
+          <div class="modal-dialog">
+              <div class="modal-content">
+                  <form method="post">
+                      <div class="moda-body">
+                          <div class="box-body">
+                              <div class="form-group">
+                                <div class="form-group">
+                                  <h2>Título:</h2>
+                                  <input type="text" name="titulo" class="input-lg form-control" required="">
+  
+                                </div>
+
+                                  <h2>Genero Literario:</h2>
+                                  <select name="genero" class="input-lg form-control" required="">
+                                      <option value="">Seleccionar...</option>
+                                      <option value="terror">Terror</option>
+                                      <option value="novela">Novela</option>
+      
+                                  </select>
+                                  
+                                  <h2>Autor:</h2>
+                                  <select name="genero" class="input-lg form-control" required="">
+                                      <option value="">Seleccionar...</option>
+                                      <option value="mvl">Mario Vargas Llosa</option>
+                                      <option value="coelho">Paulo Coelho</option>
+                                      <option value="garibay">Jean Garibay</option>
+      
+                                  </select>
+
+                                  <div class="form-group">
+                                      <h2>Fecha de Publicación:</h2>
+                                      <input type="date" name="fechapub" class="input-lg form-control" required="">
+      
+                                  </div>
+      
+                                  <div class="form-group">
+                                      <h2>Sinopsis:</h2>
+                                      <input type="text" name="idioma" class="input-lg form-control" required="">
+      
+                                  </div>
+      
+                                  <div class="form-group">
+                                      <h2>Idioma:</h2>
+                                      <input type="text" name="usuario" class="input-lg form-control" required="">
+      
+                                  </div>
+      
+                                  <div class="form-group">
+                                      <h2>Portada:</h2>
+                                      <input type="text" name="documento" class="input-lg form-control" required="">
+      
+                                  </div>
+                              </div>
+                          </div>
+
+                          <!--
+                          <br><div class="alert alert-danger" style="text-align: center;">Error al Ingresar</div>         -->                           
+                          <div class="modal-footer">
+                              <button type="submit" class="btn btn-primary">Crear</button>
+                              <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+
+                          </div>
+                      </div>
+                  </form>
+              </div>
+          </div>
+      </div>
+    </div>
+
+
+    <aside class="main-sidebar">
+        <section class="sidebar">
+    
+         <ul class="sidebar-menu">
+    
+          <li>
+            <a href="#">
+              <i class="fa fa-home"></i>
+              <span>Inicio</span>
+            </a>
+          </li>
+    
+          <li>
+            <a href="#">
+              <i class="fa fa-users"></i>
+              <span>Usuarios</span>
+            </a>
+          </li>
+    
+          <li>
+            <a href="#">
+              <i class="fa fa-user"></i>
+              <span>Clientes</span>
+            </a>
+          </li>
+    
+          <li class="treeview">
+    
+            <a href="#">
+    
+              <i class="fa fa-list-ul"></i>
+    
+                <span>Sobre los Libros</span>
+    
+                <span class="pull-right-container">
+    
+                  <i class="fa fa-angle-left pull-right"></i>
+    
+                </span>
+            </a>
+            <ul class="treeview-menu">
+              <li>
+                <a href="#">
+                  <i class="fa fa-diamond"></i>
+                  <span>Géneros</span>
+                </a>
+              </li>
+    
+              <li>
+                <a href="#">
+                  <i class="fa fa-users"></i>
+                  <span>Autores</span>
+                </a>
+              </li>
+    
+              <li>
+                <a href="#">
+                  <i class="fa fa-book"></i>
+                  <span>Libros</span>
+                </a>
+              </li>
+    
+            </ul>
+    
+          </li>
+    
+          <li class="treeview">
+    
+            <a href="#">
+    
+              <i class="fa fa-list-ul"></i>
+    
+                <span>Ventas</span>
+    
+                <span class="pull-right-container">
+    
+                  <i class="fa fa-angle-left pull-right"></i>
+    
+                </span>          
+    
+            </a>
+            <ul class="treeview-menu">
+              <li>
+                <a href="#">
+                  <i class="fa fa-cart-plus"></i>
+                  <span>Crear Venta</span>
+                </a>
+              </li>
+    
+              <li>
+                <a href="#">
+                  <i class="fa fa-check-square-o"></i>
+                  <span>Ver Ventas</span>
+                </a>
+              </li>
+    
+            </ul>
+    
+          </li>
+          <li>
+            <a href="#">
+              <i class="fa fa-truck"></i>
+              <span>Envíos</span>
+            </a>
+          </li>
+    
+          <li>
+            <a href="#">
+              <i class="fa fa-cubes"></i>
+              <span>Pedidos</span>
+            </a>
+          </li>
+    
+         </ul>
+    
+        </section>
+    </aside>
+
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <script src="bower_components/input-mask/jquery.inputmask.js"></script>
+    <script src="bower_components/input-mask/jquery.inputmask.date.extensions.js"></script>
+    <script src="bower_components/input-mask/jquery.inputmask.extensions.js"></script>  
+    <script src="js/clientes.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="dist/js/adminlte.min.js"></script>
+    <script type="text/javascript">
+
+    $(document).ready(function(){
+
+      $('.sidebar-menu').tree();
+    })
+
+  </script>
+</body>
+</html>

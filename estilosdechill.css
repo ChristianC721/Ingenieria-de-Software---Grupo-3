@@ -1,0 +1,18 @@
+.caja {
+  background-color: #e8e8e8;
+  text-align: center;
+  line-height: 100px;
+}
+
+.portada {
+  height: 80px;
+}
+
+.aunladito {
+  display: inline-block;
+}
+
+.registros {
+  margin-left: 20%;
+  margin-top: 20px;
+}
